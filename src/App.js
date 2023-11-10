@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import GlobalStyle from './GlobalStyle';
+import theme from './theme';
+import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection'; // Import the HeroSection component
+import Testimonials from './components/Testimonials';
+import Book from './components/Book'; // Import the Book component
+import Seeding from './components/Seeding';
+import Message from './components/Message';
+import SignUp from './components/SignUp';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Navbar /> {/* Include the Navbar component at the top */}
+      <HeroSection /> {/* Include the HeroSection component below the Navbar */}
+      <Testimonials />
+      <Book /> {/* Include the Book component below the CardsContainer */}
+      <Seeding />
+      <Message />
+      <SignUp  />
+    </ThemeProvider>
   );
 }
 
